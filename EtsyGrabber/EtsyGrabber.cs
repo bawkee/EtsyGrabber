@@ -13,15 +13,15 @@ namespace EtsyGrabber
 	{
 		private readonly string _file;
 		private readonly string _outputDir;
-		private readonly int _throttleSeconds;
+		private readonly int _throttle;
 
 		public Action<int> Progress { get; set; }
 
-		public EtsyGrabber(string file, string outputDir, int throttleSeconds = 2)
+		public EtsyGrabber(string file, string outputDir, int throttle)
 		{
 			_file = file;
 			_outputDir = outputDir;
-			_throttleSeconds = throttleSeconds;
+			_throttle = throttle;
 		}
 
 		public async Task Grab()
@@ -68,7 +68,7 @@ namespace EtsyGrabber
 			if (File.Exists(filePath))
 				return;
 
-			await Task.Delay(_throttleSeconds);
+			await Task.Delay(_throttle);
 
 			using var client = new WebClient();
 

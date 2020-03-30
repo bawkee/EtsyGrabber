@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EtsyGrabber": {
+      "commandName": "Project",
+      "commandLineArgs": "--csv EtsyListingsDownload.csv --outDir .\\OutputA"
+    }
+  }
+}
